@@ -15,7 +15,7 @@ export class PageableParams{
   public mapPagination(params:HttpParams, parameters:PageableParams ):HttpParams{
     return params
       .set('page',parameters.page.toString())
-      .set('pageSize',parameters.page.toString())
+      .set('pageSize',parameters.pageSize.toString())
       .set('firstRequest',parameters.firstRequest.toString());
   }
 

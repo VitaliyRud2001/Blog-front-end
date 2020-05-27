@@ -12,6 +12,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppNavbarComponent } from './Shared/Components/app-navbar/app-navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './Shared/Components/home/home.component';
+import {PostsComponent} from "./Shared/Components/posts/posts/posts.component";
+
 
 
 
@@ -19,7 +21,8 @@ import { HomeComponent } from './Shared/Components/home/home.component';
   declarations: [
     AppComponent,
     AppNavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

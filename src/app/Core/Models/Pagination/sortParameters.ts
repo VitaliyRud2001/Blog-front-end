@@ -12,8 +12,8 @@ export class SortParameters{
   }
   static mapToQueryObject(queryParams: any, sort: SortParameters): any {
     if (sort.orderByField) {
-      queryParams['Sort.OrderByField'] = sort.orderByField;
-      queryParams['Sort.OrderByAscending'] = sort.orderByAscending;
+      queryParams['SortableParams.OrderByField'] = sort.orderByField;
+      queryParams['SortableParams.OrderByAscending'] = sort.orderByAscending;
     }
     return queryParams;
   }
@@ -21,8 +21,8 @@ export class SortParameters{
   public mapSort(params : HttpParams):HttpParams{
     if(this.orderByField){
       params = params
-        .set('Sort.OrderByField',this.orderByField)
-        .set('Sort.OrderByAscending',this.orderByAscending.toString());
+        .set('SortableParams.OrderByField',this.orderByField)
+        .set('SortableParams.OrderByAscending',this.orderByAscending.toString());
     }
     return params;
   }
