@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PostService} from "../../../../Core/Services/post/post.service";
 import {PostQueryParams} from "../../../../Core/Models/postQueryParams";
@@ -7,20 +7,21 @@ import {IPost} from "../../../../Core/Models/post";
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PostsComponent implements OnInit {
 queryParams:PostQueryParams = new PostQueryParams();
 posts:IPost[];
-content="<font face=\"Arial\">Hi!</font><blockquote><p><font face=\"Arial\">I love to stay here!</font></p></blockquote>";
-totalSize:number;
+totalSize:number = 20;
+
   constructor(private routeActive:ActivatedRoute,
               private router:Router,
               private postService:PostService) { }
 
   ngOnInit(): void {
     this.routeActive.queryParams.subscribe((params:Params)=>{
-      this.queryParams = PostQueryParams.MapFromQuery(params,1,5);
+      this.queryParams = PostQueryParams.MapFromQuery(params,1,4);
       console.log('params in ngOnInit',this.queryParams);
       this.getPosts(this.queryParams);
     });
@@ -42,4 +43,17 @@ totalSize:number;
     });
   }
 
+  pageChanged($event: any) {
+    console.log("selected page", $event);
+    this.queryParams.page = $event;
+    this.queryParams.firstRequest = false;
+    this.changeUrl();
+  }
+
+  private changeUrl() {
+    this.router.navigate(['.'],{
+      relativeTo : this.routeActive,
+      queryParams : this.queryParams
+    })
+  }
 }

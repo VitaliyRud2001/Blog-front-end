@@ -5,6 +5,7 @@ export interface IPost {
   Id:number;
   Title:string;
   Body:string;
+  BodyMarkDown:string;
   ImagePath?:string;
   CreatedDate:Date;
   Tags:ITag[];

@@ -9,7 +9,7 @@ export class PostQueryParams extends PageableParams{
   tags?:number[];
   SortableParams : SortParameters;
 
-  static MapFromQuery(params:any,defaultPage:number=1,defaultPageSize:number=5):PostQueryParams {
+  static MapFromQuery(params:any,defaultPage:number=1,defaultPageSize:number=4):PostQueryParams {
     const post = new PostQueryParams();
     post.SearchTerm = params.SearchTerm ? params.SearchTerm : undefined;
     post.tags = params.tags ? params.tags : undefined;

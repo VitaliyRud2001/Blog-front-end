@@ -1,83 +1,63 @@
+<!-- Section: Blog v.3 -->
 <div class="container">
 
+<section class="my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Recent posts</h2>
+  <!-- Section description -->
+  <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Here you can find by posts about various topics.
+  Enjoy!</p>
+
+  <!--Display posts-->
+<ng-container *ngFor="let post of posts">
+  <!-- Grid row -->
   <div class="row">
 
-    <!-- Post Content Column -->
-    <div class="col-lg-8">
+    <!-- Grid column -->
+    <div class="col-lg-5 col-xl-4">
 
-      <!-- Title -->
-      <h1 class="mt-4">Post Title</h1>
-
-      <!-- Author -->
-      <p class="lead">
-        by
-        <a href="#">Start Bootstrap</a>
-      </p>
-
-      <hr>
-
-      <!-- Date/Time -->
-      <p>Posted on January 1, 2019 at 12:00 PM</p>
-
-      <hr>
-
-      <!-- Preview Image -->
-      <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-      <hr>
-
-      <!-- Post Content -->
-<div [innerHTML]="content"></div>
-      <hr>
-
-      <!-- Comments Form -->
-      <div class="card my-4">
-        <h5 class="card-header">Leave a Comment:</h5>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <textarea class="form-control" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Single Comment -->
-      <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-          <h5 class="mt-0">Commenter Name</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
-      </div>
-
-      <!-- Comment with nested comments -->
-      <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-          <h5 class="mt-0">Commenter Name</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-          <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
-          <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-
-        </div>
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+        <img class="img-fluid" src="https://localhost:44317/{{post.imagePath}}"  alt="Sample image">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
       </div>
 
     </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7 col-xl-8">
+
+      <!-- Post title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{post.title}}</strong></h3>
+      <!-- Excerpt -->
+      <!-- Post data -->
+      <p>by <a class="font-weight-bold">Jessica Clark</a>, {{post.createdDate | date:'medium'}}</p>
+      <!-- Read more button -->
+      <a class="btn btn-primary btn-md">Read more</a>
+
+    </div>
+    <!-- Grid column -->
 
 
+
+  </div>
+  <!-- Grid row -->
+  <hr class="my-5">
+
+</ng-container>
+
+
+
+</section>
+<!-- Section: Blog v.3 -->
+  <app-pagination
+    [arraySize]="totalSize"
+    [pageSize]="queryParams.pageSize"
+    [selectedPage]="queryParams.page"
+    (onPageChange)="pageChanged($event)">
+  </app-pagination>
+</div>
