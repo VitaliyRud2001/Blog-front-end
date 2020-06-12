@@ -1,5 +1,5 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light white">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
   <!-- Navbar brand -->
   <a class="navbar-brand" href="#">Vitalii Rudenko</a>
@@ -34,11 +34,10 @@ true}">My blog</a>
     </ul>
     <!-- Links -->
 
-    <form class="form-inline">
-      <div class="md-form my-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      </div>
-    </form>
+    <div class="form-inline my-2 my-lg-0">
+      <input [(ngModel)]="searchText" class="form-control mr-sm-2" (keyup.enter)="display()" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="display()">Search</button>
+    </div>
   </div>
   <!-- Collapsible content -->
 

@@ -5,7 +5,7 @@ import {PostQueryParams} from "../../Models/postQueryParams";
 import {Observable} from "rxjs";
 import {IPage} from "../../Models/page";
 import {IPost} from "../../Models/post";
-
+import {postUrl} from "../../../Configs/enpoints";
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +17,10 @@ export class PostService {
 
 
   getPostPage(postParams: PostQueryParams): Observable<IPage<IPost>> {
-    return this.pagination.getPostPage<IPost>("https://localhost:44317/api/Post",postParams);
+    return this.pagination.getPostPage<IPost>(postUrl,postParams);
   }
+  createPost(post : FormData){
+    return this.httpClient.post<IPost>(postUrl,post);
+  }
+
 }

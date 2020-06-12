@@ -1,0 +1,48 @@
+<div class="container">
+<form  class="border border-light p-5" [formGroup]="form" (ngSubmit)="CreatePost()">
+  <p class="h2 mb-4 title">Create new post</p>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Enter post's title</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="title">
+  </div>
+
+
+
+
+  <div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Featured image</span>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01"
+             (change)="uploadImage($event)"
+             formControlName="image"
+             accept="image/*"
+             aria-describedby="inputGroupFileAddon01">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
+  </div>
+  </div>
+  <div class="form-group textarea-container">
+    <div class="textarea-container">
+      <label for="exampleFormControlTextarea3">Content</label>
+      <textarea [(ngModel)]="contentMarkDown" #area class="form-control" id="exampleFormControlTextarea3" rows="7" formControlName="content"></textarea>
+      <button type="button" class="btn btn-default px-3" (click)="openSelectImageDialog()"><i class="far fa-image"></i></button>
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-rounded">submit</button>
+
+
+</form>
+
+
+  <markdown #markdown emoji [data]="contentMarkDown">
+
+  </markdown>
+
+
+</div>
+
