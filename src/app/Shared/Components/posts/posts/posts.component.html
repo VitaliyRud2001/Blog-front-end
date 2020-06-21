@@ -3,12 +3,12 @@
 
 <section class="my-5">
 
+
   <!-- Section heading -->
   <h2 class="h1-responsive font-weight-bold text-center my-5">Recent posts</h2>
   <!-- Section description -->
   <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Here you can find by posts about various topics.
   Enjoy!</p>
-
   <!--Display posts-->
 <ng-container *ngFor="let post of posts">
   <!-- Grid row -->
@@ -34,7 +34,7 @@
       <h3 class="font-weight-bold mb-3"><strong>{{post.title}}</strong></h3>
       <!-- Excerpt -->
       <!-- Post data -->
-      <p>by <a class="font-weight-bold">Jessica Clark</a>, {{post.createdDate | date:'medium'}}</p>
+      <p>by <a class="font-weight-bold">{{post.user.firstName}} {{post.user.lastName}}</a>, {{post.createdDate | date:'medium'}}</p>
      <ng-template [ngIf]="post.tags.length" >
        <p>
       <ng-template [ngIf]="post.tags.length>1" [ngIfElse]="oneTag" >Tags: </ng-template>

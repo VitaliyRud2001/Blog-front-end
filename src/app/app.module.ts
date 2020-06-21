@@ -25,6 +25,8 @@ import {MarkdownModule, MarkedOptions, MarkedRenderer} from "ngx-markdown";
 import {PaginationComponent} from "./Shared/Components/pagination/pagination.component";
 import { PostComponent } from './Shared/Components/post/post.component';
 import { FooterComponent } from './Shared/Components/footer/footer.component';
+import { FilterBarComponent } from './Shared/Components/filter-bar/filter-bar.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 export function markedOptionsFactory():MarkedOptions{
@@ -58,7 +60,8 @@ export function markedOptionsFactory():MarkedOptions{
     SelectImageDialogComponent,
     PaginationComponent,
     PostComponent,
-    FooterComponent
+    FooterComponent,
+    FilterBarComponent
   ],
   imports: [
     BrowserModule,
@@ -72,11 +75,13 @@ export function markedOptionsFactory():MarkedOptions{
     ReactiveFormsModule,
     MatDialogModule,
     MarkdownModule.forRoot({
-      markedOptions:{
-        provide:MarkedOptions,
-        useFactory:markedOptionsFactory
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: markedOptionsFactory
       }
     }),
+    MatSelectModule,
+
 
 
   ],
