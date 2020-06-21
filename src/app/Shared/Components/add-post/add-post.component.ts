@@ -35,6 +35,7 @@ export class AddPostComponent implements OnInit {
 
   CreatePost() {
     const compiledMarkdown = this.MarkDown.compile(this.form.get('content').value);
+    console.log('compiledMarkDown', compiledMarkdown);
     let strippedMarkDown = compiledMarkdown.replace(/(<([^>]+)>)/ig,"");
     console.log('form submited',this.form.value);
     const formData:FormData = new FormData();

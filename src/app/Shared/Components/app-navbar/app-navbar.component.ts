@@ -18,7 +18,7 @@ export class AppNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params=>{
-      this.searchText = params['SearchTerm'];
+      this.searchText = params['searchTerm'];
     })
   }
 
@@ -27,7 +27,7 @@ export class AppNavbarComponent implements OnInit {
 
   display() {
       this.postQueryParams.pageSize = 4;
-      this.postQueryParams.SearchTerm = this.searchText;
+      this.postQueryParams.searchTerm = this.searchText;
       console.log('in subscribe ', this.searchText);
       this.router.navigate(['/posts'],{
         relativeTo : this.activatedRoute,

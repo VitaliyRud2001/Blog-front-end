@@ -22,5 +22,7 @@ export class PostService {
   createPost(post : FormData){
     return this.httpClient.post<IPost>(postUrl,post);
   }
-
+  getPostById(id:number):Observable<IPost>{
+    return this.httpClient.get<IPost>(postUrl+`/${id}`);
+  }
 }

@@ -19,12 +19,11 @@
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="https://localhost:44317/{{post.imagePath}}"  alt="Sample image">
+        <img class="img-fluid" src="https://blogbackend1.azurewebsites.net/{{post.imagePath}}"  alt="Sample image">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
       </div>
-
     </div>
     <!-- Grid column -->
 
@@ -36,8 +35,18 @@
       <!-- Excerpt -->
       <!-- Post data -->
       <p>by <a class="font-weight-bold">Jessica Clark</a>, {{post.createdDate | date:'medium'}}</p>
+     <ng-template [ngIf]="post.tags.length" >
+       <p>
+      <ng-template [ngIf]="post.tags.length>1" [ngIfElse]="oneTag" >Tags: </ng-template>
+       <ng-template #oneTag>Tag: </ng-template>
+         <strong *ngFor="let tag of post.tags;let i=index"><ng-template [ngIf]="i!=0">,</ng-template>{{tag.tagName}}</strong>
+       </p>
+     </ng-template>
+
       <!-- Read more button -->
-      <a class="btn btn-primary btn-md">Read more</a>
+      <a class="btn btn-primary btn-m" (click)="navigateToPage(post.id)">Read more</a>
+
+
 
     </div>
     <!-- Grid column -->

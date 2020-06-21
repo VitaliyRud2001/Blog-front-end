@@ -1,5 +1,6 @@
 
 import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from "@angular/common";
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MarkdownModule, MarkedOptions, MarkedRenderer} from "ngx-markdown";
 import {PaginationComponent} from "./Shared/Components/pagination/pagination.component";
 import { PostComponent } from './Shared/Components/post/post.component';
+import { FooterComponent } from './Shared/Components/footer/footer.component';
+
 
 export function markedOptionsFactory():MarkedOptions{
   const renderer = new MarkedRenderer();
@@ -54,10 +57,12 @@ export function markedOptionsFactory():MarkedOptions{
     AddPostComponent,
     SelectImageDialogComponent,
     PaginationComponent,
-    PostComponent
+    PostComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,

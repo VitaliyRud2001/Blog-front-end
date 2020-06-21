@@ -4,6 +4,7 @@ import {PostService} from "../../../../Core/Services/post/post.service";
 import {PostQueryParams} from "../../../../Core/Models/postQueryParams";
 import {IPost} from "../../../../Core/Models/post";
 
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -54,6 +55,13 @@ totalSize:number = 20;
     this.router.navigate(['.'],{
       relativeTo : this.routeActive,
       queryParams : this.queryParams
+    })
+  }
+
+  navigateToPage(Id: number) {
+    this.router.navigate(['/post'],{
+      relativeTo:this.routeActive,
+      queryParams : {'id':Id.toString()}
     })
   }
 }
