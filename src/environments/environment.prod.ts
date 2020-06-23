@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl : 'https://localhost:44317'
+  apiUrl : 'https://blogbackend1.azurewebsites.net/'
 };
