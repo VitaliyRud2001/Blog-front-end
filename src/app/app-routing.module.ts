@@ -6,6 +6,7 @@ import {AddPostComponent} from "./Shared/Components/add-post/add-post.component"
 import {PostComponent} from "./Shared/Components/post/post.component";
 
 const routes: Routes = [
+  {path : '',component:HomeComponent},
   { path: 'home', component: HomeComponent },
   {path:'posts',component:PostsComponent},
   {path :'add-post',component:AddPostComponent},
